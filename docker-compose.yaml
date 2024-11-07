@@ -28,9 +28,18 @@ services:
     # based on the above image a particular name
     container_name: flask01-web-api
 
-    
+    # Gives the container a specific host name.  You can 
+    # largely ignore this
     hostname: web-api
+
+    # Maps the api/ folder in the project folder into the container.
+    # Inside the container, it will appear as though the folder name
+    # is called /apicode, which we set as the working directory
+    # in api/Dockerfile
     volumes: ['./api:/apicode']
+
+    # Mapping Port 4000 exposed by container to the host machine's
+    # (your laptop's) port 4000. 
     ports:
       - 4000:4000
 
